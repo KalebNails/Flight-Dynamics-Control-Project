@@ -16,6 +16,10 @@ This project was developed for my Dynamics & Controls course and implements a fu
 2. Waypoint Demo:            https://youtu.be/oyI0Aa2u-BQ
 3. Altitude Schedule Demo:   https://youtu.be/LaaLUl7r_I8
 
+
+<img width="2559" height="1394" alt="image" src="https://github.com/user-attachments/assets/fe38d6f0-2f4e-435e-a356-64044885a36c" />
+
+
 ## **How to use:**
 1. Run **Navion_Geom_Temp.m**
 2. In Navioon_6DoF_10_auto_ascend_2023.mdl Use the **Generate Run Script** block to generate a runfg.bat file to generate a config file for flight gear.
@@ -137,6 +141,11 @@ Below is the **bank hold** subsystem. It is a simple bounded PID to produce the 
 Below is the **Desired & current heading to error** block. This is a simple subsystemm to calculate the error in the angle between the desired heading and the current heading. This is then passed to the Bank angle PID.
 
 <img width="1606" height="713" alt="image" src="https://github.com/user-attachments/assets/9749bd01-4a42-40bd-86b1-b4b01950ecc8" />
+
+Below is a image of the alitude from the waypoint example.
+
+<img width="1495" height="973" alt="image" src="https://github.com/user-attachments/assets/6e5cd560-281b-404e-84fc-c8e8bbc53fa5" />
+
 
 
 
