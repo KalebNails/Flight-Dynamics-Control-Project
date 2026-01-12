@@ -5,6 +5,7 @@ This project was developed for my Dynamics & Controls course and implements a fu
 **Main Model Image:** Navioon_6DoF_10_auto_ascend_2023.pdf
 **Variable Initation File:** Navion_Geom_Temp.m
 **Example Xbox Simulink Interface:** Xbox_controller.slx
+📄 **[View the Simulink Model (PDF)](Navion_6DoF_10_auto_ascend_2023.pdf)**
 
 ## Youtube Demo Links:
 1. Xbox Controller Demo:     https://youtu.be/cOsSXi2NBvk
