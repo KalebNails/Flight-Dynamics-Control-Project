@@ -50,14 +50,37 @@ Explanation of handling quality modes and their operational envelopes.
 <details>
 <summary><strong>Xbox Control</strong></summary>
 
-Support for Xbox controller input and mapping.
+Support for Xbox controller input and mapping. **[Xbox Controller Demo](https://youtu.be/cOsSXi2NBvk)**
+
+The image below shows where the Xbox Controller subsystem fits into the overall model. From the control we get Elevator, ailron, rudder, and throttle commands.
+
+<img width="1338" height="887" alt="image" src="https://github.com/user-attachments/assets/9aa67031-712f-450a-a5c6-4b7b9e1806d9" />
+
+The image below shows the Xbox controller subsystem. Notably, a simulated control-surface extension time is applied to the rudder, but not to the aileron or elevator. This design choice is driven by human factors considerations: an instantaneous full rudder deflection causes the aircraft to snap aggressively left or right, inducing a large uncommanded roll.
+
+To mitigate this behavior, a finite extension rate is applied to rudder deflection, while allowing instantaneous retraction. Additionally, because the Xbox controller interprets trigger inputs as discrete signals, the left (−1) and right (+1) trigger inputs are integrated. This allows the user to set and maintain a throttle level without continuously holding either trigger.
+
+<img width="1232" height="887" alt="image" src="https://github.com/user-attachments/assets/85c710f9-3bdc-4bba-9b5d-a19102a7f908" />
+
 
 </details>
 
 <details>
 <summary><strong>Waypoint Control</strong></summary>
 
-Autonomous navigation using predefined waypoints.
+Autonomous navigation using predefined waypoints as seen in the image below.
+
+**[Waypoint Video Demo](https://youtu.be/oyI0Aa2u-BQ)**
+
+<img width="1602" height="876" alt="starpath" src="https://github.com/user-attachments/assets/27c0d707-3d30-4a2a-b1b5-c6683644bc27" />
+
+The image above shows the XY graph of the aircraft throughout the flight. Below is an image of the simulink subsystem that goes through the waypoints. It will automatically move to the next waypoint as long as the aircraft is within 100ft of the current waypoint. These waypoints can include altitude.
+
+<img width="1085" height="628" alt="waypointsystem" src="https://github.com/user-attachments/assets/5d8fe20b-d22e-4c34-baab-7e6748e4608e" />
+
+Then this subsystem below is what takes the waypoint and calculates the relative heading. This is then passed into the bank angle control laws to command and ailron change.
+
+<img width="919" height="514" alt="image" src="https://github.com/user-attachments/assets/f47976fb-3ff6-4612-b625-fdcac1124ebd" />
 
 </details>
 
@@ -80,7 +103,7 @@ Automatic bank angle scheduling and stabilization.
 <details>
 <summary><strong>Waypoint Calculator</strong></summary>
 
-Computes navigation paths and waypoint transitions.
+This is the subsystem waypoint calcultoor
 
 </details>
 
