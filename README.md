@@ -1,6 +1,8 @@
 # Flight-Dynamics-Control-Project
 This project was developed for my Dynamics & Controls course and implements a full aircraft control law based on a provided aircraft model. The system supports altitude scheduling and hold, waypoint navigation, bank angle hold, and manual control via an Xbox controller. All control outputs are exported to FlightGear for real-time visualization and animation.
 
+**[View the Simulink Model (PDF)](Navion_6DoF_10_auto_ascend_2023.pdf)**
+
 **Main Model:** Navioon_6DoF_10_auto_ascend_2023.mdl
 
 **Main Model Image:** Navioon_6DoF_10_auto_ascend_2023.pdf
@@ -8,8 +10,6 @@ This project was developed for my Dynamics & Controls course and implements a fu
 **Variable Initation File:** Navion_Geom_Temp.m
 
 **Example Xbox Simulink Interface:** Xbox_controller.slx
-
-**[View the Simulink Model (PDF)](Navion_6DoF_10_auto_ascend_2023.pdf)**
 
 ## Youtube Demo Links:
 1. Xbox Controller Demo:     https://youtu.be/cOsSXi2NBvk
