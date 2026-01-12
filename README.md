@@ -87,14 +87,37 @@ Then this subsystem below is what takes the waypoint and calculates the relative
 <details>
 <summary><strong>Altitude Scheduling & Hold</strong></summary>
 
-Automatic altitude scheduling and hold logic.
+Automatic altitude scheduling and hold logic. The image below shows where the altitude scheduling and Hold are handled. 
+[Altitude Schedule Video Demo](https://youtu.be/LaaLUl7r_I8)
+
+<img width="1458" height="645" alt="image" src="https://github.com/user-attachments/assets/65a80ddb-ca31-47ab-b316-cb0717d53a26" />
+
+As you see below the Alitude commands are handed directly to the longitudinal autopilot. This allows us to very easily create a time based altitude schedule or use a constant for a desired altitude request. 
+
+<img width="1343" height="579" alt="image" src="https://github.com/user-attachments/assets/cc77bcfb-fc6e-46c5-8658-150bca09a496" />
 
 </details>
 
 <details>
 <summary><strong>Bank Angle Scheduling & Hold</strong></summary>
 
-Automatic bank angle scheduling and stabilization.
+Automatic bank angle scheduling and stabilization. The image below shows the general area where Bank angle is handled. 
+
+<img width="1928" height="656" alt="image" src="https://github.com/user-attachments/assets/542b8b58-1446-4f42-976c-a45e1c27640d" />
+
+The iimage below shows the 3 options for bank angle control. Either a direct ailron input, a given bank angle in degrees, or a desired heading. 
+
+<img width="1666" height="630" alt="image" src="https://github.com/user-attachments/assets/9dde8271-99fa-430c-8bdf-1f168d6eae4a" />
+
+Below is the **bank hold** subsystem. It is a simple bounded PID to produce the bank angle needed.
+
+<img width="1268" height="287" alt="image" src="https://github.com/user-attachments/assets/083073d5-6e9a-435c-b3aa-f8e6e813a79c" />
+
+Below is the **Desired & current heading to error** block. This is a simple subsystemm to calculate the error in the angle between the desired heading and the current heading. This is then passed to the Bank angle PID.
+
+<img width="1606" height="713" alt="image" src="https://github.com/user-attachments/assets/9749bd01-4a42-40bd-86b1-b4b01950ecc8" />
+
+
 
 </details>
 
