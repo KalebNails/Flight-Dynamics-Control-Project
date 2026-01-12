@@ -147,6 +147,13 @@ Below is the **Desired & current heading to error** block. This is a simple subs
 <details>
 <summary><strong>FlightGear Inputs</strong></summary>
 
-Interface for FlightGear simulation inputs.
+Interface for FlightGear simulation inputs. The image below shows where it exists in the model. Importantly the GENFGRUN block generates the propper config file for flight gear. 
+
+<img width="729" height="428" alt="image" src="https://github.com/user-attachments/assets/0f822cf0-99b5-400b-8920-6fc1c088ebee" />
+
+Below is the FlightGear subsystem. The Z had to be flipped because of the difference in sign conventions between an aircraft reference frame and a global reference frame. Then it uses the Flat Earth to LLA block to produce the variables the FlightGear Preconfigured 6DoF Animation block needs. 
+<img width="1751" height="477" alt="image" src="https://github.com/user-attachments/assets/539bf3bc-b3f9-47da-b9d0-a2d4bbe267ee" />
+
+
 
 </details>
