@@ -24,17 +24,12 @@ This project was developed for my Dynamics & Controls course and implements a fu
 
 # Control Laws
 
-<details>
-<summary><strong>Bank Angle Control Laws</strong></summary>
 
-Description of lateral/directional control laws governing bank angle response.
-
-</details>
 
 <details>
 <summary><strong>Longitudinal Control Laws</strong></summary>
 
-The longituinal autopilot is handled in the below section of the model. The autopilot takes a commanded altitude, the rate of climb, current altitude, and a handling metric and outputs a rudder command. 
+The longituinal autopilot is handled in the below section of the model. The autopilot takes a commanded altitude, the rate of climb, current altitude, and a handling metric and outputs a elevator command. 
 
 <img width="1694" height="673" alt="image" src="https://github.com/user-attachments/assets/d2467a78-97f3-4fd6-910e-9a0f36a7627c" />
 
@@ -51,12 +46,25 @@ The term u(1) in the equation represents a handling quality metric. This metric 
 Once the rate of climb (ROC) is calculated by the arctangent equation, the error between this commanded ROC and the current ROC is fed into a bounded PID controller.
 
 <img width="2312" height="956" alt="image" src="https://github.com/user-attachments/assets/79e93f81-8ddc-4ac8-ad24-4929047dd86b" />
+
 *Red is a handling value of 1, blue is 0.*
 
-
+<img width="665" height="172" alt="image" src="https://github.com/user-attachments/assets/462fb71f-a499-466a-b4e0-e3df3dbb35a2" />
 
 </details>
 
+<details>
+<summary><strong>Bank Angle Control Laws</strong></summary>
+
+Description of lateral/directional control laws governing bank angle response. Below shows where the bank angle sybsystem is in the model. 
+
+<img width="1647" height="426" alt="image" src="https://github.com/user-attachments/assets/741fe680-6869-497c-a0a7-9c07fdeb900d" />
+
+The subsystem below is the **Bank Angle PID** subsystem. This takes heading error, current euler angles, and the handling qualities. This works in the same way as the longitudinal control law described above. Arguabley using an arctan is more important in bank angle to prevent the PID from commanding a 90 degree bank. This then produces a ailron command.
+
+<img width="1930" height="618" alt="image" src="https://github.com/user-attachments/assets/e8d5b552-2548-44ea-b281-180f08db0c03" />
+
+</details>
 
 # Autopilots & Capabilities
 
