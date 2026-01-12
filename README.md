@@ -34,16 +34,29 @@ Description of lateral/directional control laws governing bank angle response.
 <details>
 <summary><strong>Longitudinal Control Laws</strong></summary>
 
-Description of pitch, altitude, and airspeed control behavior.
+The longituinal autopilot is handled in the below section of the model. The autopilot takes a commanded altitude, the rate of climb, current altitude, and a handling metric and outputs a rudder command. 
+
+<img width="1694" height="673" alt="image" src="https://github.com/user-attachments/assets/d2467a78-97f3-4fd6-910e-9a0f36a7627c" />
+
+Below is the longitudinal autopilot subsystem:
+
+<img width="1448" height="775" alt="image" src="https://github.com/user-attachments/assets/b39f80d9-61e6-4d90-b033-3e56c720cdff" />
+
+This subsystem calculates the error between the commanded altitude and the current altitude and passes it to an arctangent-based equation, shown in the plot below. In this equation, the x-axis represents the altitude error, and the y-axis represents the commanded rate of climb or descent. The equation is designed to produce smooth altitude transitions.
+
+When the altitude error is large, the equation outputs a corresponding rate of climb or descent. The arctangent function is calibrated so that the commanded climb rate is always within a safe limit, preventing the aircraft from stalling—an issue that a traditional PID controller may encounter.
+
+The term u(1) in the equation represents a handling quality metric. This metric stretches the arctangent curve along the y-axis, allowing the autopilot to achieve more aggressive altitude changes when necessary. Some of the maneuvers provided in the project required short periods of climb or descent that would exceed the default safe rates. Rather than discarding the equation, the handling metric was added to control the maximum commanded rate and the rate at which it changes.
+
+Once the rate of climb (ROC) is calculated by the arctangent equation, the error between this commanded ROC and the current ROC is fed into a bounded PID controller.
+
+<img width="2312" height="956" alt="image" src="https://github.com/user-attachments/assets/79e93f81-8ddc-4ac8-ad24-4929047dd86b" />
+*Red is a handling value of 1, blue is 0.*
+
+
 
 </details>
 
-<details>
-<summary><strong>Handling Quality (Commercial to Stunt)</strong></summary>
-
-Explanation of handling quality modes and their operational envelopes.
-
-</details>
 
 # Autopilots & Capabilities
 
@@ -121,14 +134,7 @@ Below is the **Desired & current heading to error** block. This is a simple subs
 
 </details>
 
-# Subsystems
-
-<details>
-<summary><strong>Waypoint Calculator</strong></summary>
-
-This is the subsystem waypoint calcultoor
-
-</details>
+# Misc Subsystems
 
 <details>
 <summary><strong>FlightGear Inputs</strong></summary>
